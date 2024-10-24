@@ -1,0 +1,157 @@
+.catalogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    background-color:rgba(225, 209, 209, 1);  
+}
+
+.catalogo form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txtUsername{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtUsername input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtUsername label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtUsername input:focus ~ label,
+.txtUsername input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+form .txtPassword{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtPassword input{
+    width: 100%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtPassword label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtPassword input:focus ~ label,
+.txtPassword input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+.btnCerrar{
+    position: fixed;
+    width: 10%;
+    padding: 10px 10px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    left: 477px;
+    background-color: #d03232;
+    color: white;
+}
+
+.btnAceptar{
+    position: relative;
+    width: 30%;
+    background-color: #1A1D57;
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 12px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 315px;
+    top: -212px;
+}
+
+.btnGrabar{
+    position: relative;
+    width: 40%;
+    background-color: #1A1D57; 
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    /* left: 150px; */
+    top: -10px
+}
+
+form .txtCredencial{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtCredencial input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtCredencial label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtCredencial input:focus ~ label,
+.txtCredencial input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}

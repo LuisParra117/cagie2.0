@@ -1,0 +1,195 @@
+.catalogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    background-color:rgba(225, 209, 209, 1);  
+}
+
+.catalogo form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txtClaveAula{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtClaveAula input{
+    width: 100%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtClaveAula label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtClaveAula input:focus ~ label,
+.txtClaveAula input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+.cmbPlantel select{
+    position: relative;
+    left: 53px;
+}
+
+.cmbPlantel label{
+    position: relative;
+    left: 5px;
+    color: #030303;
+    transform: translateY(-100%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.cmbLicenciatura select{
+    position: relative;
+    left: 17px;
+}
+
+.cmbLicenciatura label{
+    position: relative;
+    left: 5px;
+    color: #030303;
+    transform: translateY(-100%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.cmbCoordinacion select{
+    position: relative;
+    left: 10px;
+}
+
+.cmbCoordinacion label{
+    position: relative;
+    left: 5px;
+    color: #030303;
+    transform: translateY(-100%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.btnCerrar{
+    position: fixed;
+    width: 10%;
+    padding: 10px 15px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    left: 424px;
+    background-color: #d03232;
+    color: white;
+}
+
+.btnGrabar{
+    position: relative;
+    width: 30%;
+    background-color: #1A1D57; 
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;  
+    left: 138px; 
+    top: -21px;
+}
+
+.btnAceptar{
+    position: relative;
+    width: 20%;
+    background-color: #1A1D57;
+    color: white; 
+    padding: 10px 10px; 
+    font-size: 12px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 311px;
+    top: -65px;
+}
+
+.btnVerLista{
+    position: relative;
+    width: 20%;
+    background-color: #1A1D57;
+    color: white; 
+    padding: 10px 10px; 
+    font-size: 14px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 189px;
+    top: -17px;
+}
+
+label.lblPlantel, label.lblCoordinacion, label.lblLicenciatura{
+    left: 20px;
+}
+
+label.lblPlantel{
+    top: -39px;
+}
+
+select.planteles{
+    top: 150px;
+}
+
+label.lblCoordinacion{
+    top: -75px;
+}
+
+select.coordinaciones{
+    top: 186px;
+}
+
+label.lblLicenciatura{
+    top: -7px;
+}
+
+select.licenciaturas{
+    top: 221px;
+}
+
+select.planteles, select.licenciaturas, select.coordinaciones {
+    background: transparent;
+    border: 1px solid #aaa;
+    font-size: 14px;
+    height: 25px;
+    padding: 5px;
+    width: 250px;
+    position: absolute;
+    left: 168px;
+ }
+
+select.planteles:focus, select.licenciaturas:focus, select.coordinaciones:focus {
+    outline: none;
+}
+

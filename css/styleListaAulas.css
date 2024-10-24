@@ -1,0 +1,60 @@
+.listaAulas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    background-color:rgba(225, 209, 209, 1);  
+}
+
+.listaAulas form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.btnCerrar{
+    position: fixed;
+    width: 10%;
+    padding: 10px 15px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    left: 477px;
+    background-color: #d03232;
+    color: white;
+}
+
+.tablaAulas { 
+    border-collapse: collapse; 
+    margin: 25px 0; 
+    font-size: 1em; 
+    font-family: sans-serif; 
+    min-width: 450px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.tablaAulas thead tr { 
+    background-color: #1A1D57; 
+    color: #ffffff; 
+    text-align: middle; 
+}
+
+.tablaAulas th, .styled-table td { 
+    padding: 12px 15px; 
+}
+
+.tablaAulas styled-table tbody tr { 
+    border-bottom: 1px solid #dddddd; 
+} 
+
+.tablaAulas tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; 
+} 
+
+/* .tablaAulas tbody tr:last-of-type { 
+    border-bottom: 2px solid #009879; 
+} */

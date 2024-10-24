@@ -1,0 +1,124 @@
+.catalogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    background-color:rgba(225, 209, 209, 1);  
+}
+
+.catalogo form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txtClaveLicenciatura{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtClaveLicenciatura input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtClaveLicenciatura label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtClaveLicenciatura input:focus ~ label,
+.txtClaveLicenciatura input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+.btnCerrar{
+    position: fixed;
+    width: 15%;
+    padding: 10px 15px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    left: 322px;
+    background-color: #d03232;
+    color: white;
+}
+
+.btnGrabar{
+    position: relative;
+    width: 40%;
+    background-color: #1A1D57; 
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    left: 96px;
+}
+
+.btnAceptar{
+    position: relative;
+    width: 30%;
+    background-color: #1A1D57;
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 12px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 210px;
+    top: -65px;
+}
+
+label.lblPlantel{
+    position: absolute;
+    left: 58px;
+    top: 219px;
+}
+
+select.planteles  {
+    background: transparent;
+    border: 1px solid #aaa;
+    font-size: 14px;
+    height: 25px;
+    padding: 5px;
+    width: 200px;
+    left: 124px;
+    top: 215px;
+    position: absolute;
+}
+
+select.planteles:focus{ outline: none;}
+
+.btnVerLista{
+    position: relative;
+    background-color: #1A1D57;
+    color: white; 
+    padding: 10px 10px; 
+    font-size: 14px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 100px;
+    top: 6px;
+}

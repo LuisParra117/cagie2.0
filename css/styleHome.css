@@ -1,0 +1,175 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+    /* background: linear-gradient(150deg, #D6A048, #2D2F66, #1A1D57, #DAA348); */
+    background: linear-gradient(150deg, #2D2F66, #1A1D57, #DAA348, #1A1D57);
+    height: 100vh;
+}
+
+/*Estilos del fondo*/
+.content{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.fondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    background-color:rgba(225, 209, 209, 0.45);    
+}
+
+.fondo img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*Estilos para el menu*/
+nav {
+    background-color: #333; 
+    color: white; 
+}
+
+ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+}
+
+li {
+    float: left; 
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111; 
+}
+
+.menuCatalogos{
+	position: absolute;
+	display: none;
+	list-style: none;
+	width: 150px;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.menuHorizontal li:hover .menuCatalogos{
+	display: block;
+}
+
+.menuCatalogos li:hover{
+	background-color: black;
+}
+
+.menuCatalogos li a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 15px 15px 15px 20px;
+}
+
+.menuMovimientos{
+	position: absolute;
+	display: none;
+	list-style: none;
+	width: 200px;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.menuHorizontal li:hover .menuMovimientos{
+	display: block;
+}
+
+.menuMovimientos li:hover{
+	background-color: black;
+}
+
+.menuMovimientos li a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 15px 15px 15px 20px;
+}
+
+.menuReportes{
+	position: absolute;
+	display: none;
+	list-style: none;
+	width: 230px;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.menuHorizontal li:hover .menuReportes{
+	display: block;
+}
+
+.menuReportes li:hover{
+	background-color: black;
+}
+
+.menuReportes li a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 15px 15px 15px 20px;
+}
+
+.menuInformacion{
+	position: absolute;
+	display: none;
+	list-style: none;
+	width: 150px;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.menuHorizontal li:hover .menuInformacion{
+	display: block;
+}
+
+.menuInformacion li:hover{
+	background-color: black;
+}
+
+.menuInformacion li a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 15px 15px 15px 20px;
+}
+
+.MenuOpciones{
+	position: absolute;
+	display: none;
+	list-style: none;
+	width: 100px;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.menuHorizontal li:hover .MenuOpciones{
+	display: block;
+}
+
+.MenuOpciones li:hover{
+	background-color: black;
+}
+
+.MenuOpciones li a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 15px 15px 15px 20px;
+}

@@ -1,0 +1,100 @@
+.catalogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    background-color:rgba(225, 209, 209, 1);  
+}
+
+.catalogo form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.btnCerrar{
+    position: fixed;
+    width: 10%;
+    padding: 10px 15px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    left: 508px;
+    background-color: #d03232;
+    color: white;
+}
+
+.btnAceptar{
+    position: absolute;
+    width: 50%;
+    background-color: #1A1D57;
+    color: white; 
+    font-size: 12px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 146px;
+    height: 26px;
+    top: 243px;
+}
+
+.lblExcel{
+    position: relative;
+    left: 36px;
+}
+
+.lblPdf{
+    position: relative;
+    left: 90px;
+}
+
+.fechas{
+    position: fixed;
+    left: 106px;
+}
+
+.lblFechaFinal{
+    position: absolute;   
+    width: 60%;
+    left: 198px;
+    top:2px;
+}
+
+.fechaFinal{
+    position: absolute;
+    left: 290px;
+}
+
+select.planteles, select.licenciaturas, select.aulas  {
+    background: transparent;
+    border: 1px solid #aaa;
+    font-size: 14px;
+    height: 25px;
+    padding: 5px;
+    width: 200px;
+    position: relative;
+    left: 20px;
+}
+
+select.aulas{
+    position: absolute;
+    left: 150px;
+    top: 180px
+}
+
+select.planteles{
+    position: absolute;
+    left: 150px;
+}
+
+.fechaInicial, .fechaFinal {
+    padding: 0px;
+    border: 1px solid #575f69; /* Cambia el color y grosor del borde */
+    border-radius: 4px;
+    font-size: 12px;
+}

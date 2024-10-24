@@ -1,0 +1,333 @@
+.catalogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    background-color:rgba(225, 209, 209, 1);  
+}
+
+.catalogo form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txtClavePlantel{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtClavePlantel input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtClavePlantel label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtClavePlantel input:focus ~ label,
+.txtClavePlantel input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+form .txtCalle{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtCalle input{
+    width: 100%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtCalle label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtCalle input:focus ~ label,
+.txtCalle input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+form .txtExterior{
+    position: absolute;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+    top:200px;
+}
+
+.txtExterior input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtExterior label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtExterior input:focus ~ label,
+.txtExterior input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+form .txtInterior{
+    position: absolute;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+    left:300px;
+    top:200px;
+}
+
+.txtInterior input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtInterior label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtInterior input:focus ~ label,
+.txtInterior input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+form .txtLatitud{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtLatitud input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtLatitud label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtLatitud input:focus ~ label,
+.txtLatitud input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+form .txtLongitud{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txtLongitud input{
+    width: 65%;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txtLongitud label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txtLongitud input:focus ~ label,
+.txtLongitud input:valid ~ label{
+    top: -5px;
+    color: #2D2F66;
+}
+
+.btnCerrar{
+    position: fixed;
+    width: 10%;
+    padding: 10px 10px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    left: 496px;
+    background-color: #d03232;
+    color: white;
+}
+
+.btnAceptar{
+    position: relative;
+    width: 30%;
+    background-color: #1A1D57;
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 12px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 330px;
+    top: -429px;
+}
+
+.btnGrabar{
+    position: relative;
+    width: 40%;
+    background-color: #1A1D57; 
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    left: 150px;
+    top: -10px
+}
+
+label.lblCodigosPostal, label.lblEstado, label.lblLocalidad, label.lblColonia{
+    left: 20px;
+}
+
+label.lblCodigoPostal{
+    position: absolute;
+    top: 445px;
+    left: 65px;
+}
+
+select.codigosPostales{
+    top: 443px;
+}
+
+label.lblColonia{
+    position: absolute;
+    top: 479px;
+    left: 65px;
+}
+
+select.colonias{
+    top: 475px;
+}
+
+label.lblLocalidad{
+    position: absolute;
+    top: 513px;
+    left: 65px;
+}
+
+select.localidades{
+    top: 507px;
+}
+
+label.lblEstado{
+    position: absolute;
+    top: 545px;
+    left: 65px;
+}
+
+select.estados{
+    top: 541px;
+}
+
+
+select.codigosPostales, select.estados, select.localidades, select.colonias {
+    background: transparent;
+    border: 1px solid #aaa;
+    font-size: 14px;
+    height: 25px;
+    padding: 5px;
+    width: 250px;
+    position: absolute;
+    left: 208px;
+ }
+
+select.codigosPostales, select.estados, select.localidades, select.colonias:focus {
+    outline: none;
+}
+
+.btnVerLista{
+    position: relative;
+    background-color: #1A1D57;
+    color: white; 
+    padding: 10px 10px; 
+    font-size: 14px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;   
+    transform: translateY(-20%);
+    left: 200px;
+    top: -3px;
+}
