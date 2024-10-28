@@ -2,7 +2,7 @@
     require '../vendor/autoload.php';
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
     $dotenv->load();
-    
+
     function conectar(){
         $cnn = mysqli_connect($_ENV['host'], $_ENV['user'], $_ENV['pwd'], $_ENV['bdd'],
                             $_ENV['port']);
@@ -11,7 +11,7 @@
         if (!$cnn) {
             die("Error de conexión: " . $cnn->connect_error);
         }else{
-            return $cnn;            
+            return $cnn;
         }
 
     }
