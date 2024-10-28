@@ -1,5 +1,6 @@
 <?php
-
+    require('vendor/autoload.php');
+    
     function conectar(){
         $cnn = mysqli_connect("localhost", "root", "", "cagie", "3306");
         $cnn -> set_charset("utf8");
