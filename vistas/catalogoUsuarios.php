@@ -96,6 +96,7 @@
                     backdrop: false,
                     timer: 1500
                 });
+                
             }
 
         });

@@ -24,5 +24,26 @@
 
         echo json_encode($datosEncontrados);
     }else{
-        
+        $usuario =  mysqli_real_escape_string(conectar(),$_POST['username']);
+        $contraseña =  mysqli_real_escape_string(conectar(),$_POST['password']);
+        $credencial =  mysqli_real_escape_string(conectar(),$_POST['credencial']);
+        $activo =  mysqli_real_escape_string(conectar(),"1");
+        $nuevoUsuario = $_POST['nuevoUsuario'];
+
+        if($nuevoUsuario == 'true'){
+            $query = "INSERT INTO usuarios (usuario, contraseña, credencia, activo)
+                        VALUES (sha1('" . $usuario . "'), sha1('" . $contraseña . "') ,'" . $credencial . "','" . $activo . "');";
+
+        }else{
+            $query = "UPDATE usuarios
+                        SET contraseña = '" . $contraseña . "', credencial = '" . $credencial . "', activo = '" . $activo . "'
+                        WHERE usuaario = '" . $usuario . "';";
+        }
+
+        $result = mysqli_query(conectar(), $quer);
+
+        if($result){
+            echo 'success';
+        }
+
     }
