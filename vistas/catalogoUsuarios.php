@@ -64,6 +64,7 @@
                     if(resp != null){
                         $('#txtPassword').val(resp.contraseña);
                         $('#txtCredencial').val(resp.credencial);
+                        nuevoUsuario = false;
                     }else{
 
                         Swal.fire({
@@ -96,8 +97,48 @@
                     backdrop: false,
                     timer: 1500
                 });
-                
+
             }
+
+        });
+
+        $('#btnGrabar').click(function(e){
+            e.preventDefault();
+
+            var obj = {
+                usuario:$('txtUsername').val(),
+                password:$('txtPassword').val(),
+                credencial:('txtCredencial').val(),
+                activo:$('activo').val();
+                nuevoUsuario:nuevoUsuario,
+                accion:'grabar'
+            };
+
+            $.post('../controlador/controladorUsuario.php', obj, function(resp){
+
+                if(resp == 'success'){
+                    
+                    Swal.fire({
+                        icon: "success",
+                        title: "Usuario grabado correctamente",
+                        showConfirmButton: false,
+                        backdrop: false,
+                        timer: 1500
+                    });
+
+                }else{
+                    
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error al grabar el usuario en la base de datos",
+                        showConfirmButton: false,
+                        backdrop: false,
+                        timer: 1500
+                    });
+
+                }
+
+            });
 
         });
 

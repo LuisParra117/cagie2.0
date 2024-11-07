@@ -31,16 +31,16 @@
         $nuevoUsuario = $_POST['nuevoUsuario'];
 
         if($nuevoUsuario == 'true'){
-            $query = "INSERT INTO usuarios (usuario, contraseña, credencia, activo)
+            $query =   "INSERT INTO usuarios (usuario, contraseña, credencia, activo)
                         VALUES (sha1('" . $usuario . "'), sha1('" . $contraseña . "') ,'" . $credencial . "','" . $activo . "');";
 
         }else{
-            $query = "UPDATE usuarios
+            $query =   "UPDATE usuarios
                         SET contraseña = '" . $contraseña . "', credencial = '" . $credencial . "', activo = '" . $activo . "'
                         WHERE usuaario = '" . $usuario . "';";
         }
 
-        $result = mysqli_query(conectar(), $quer);
+        $result = mysqli_query(conectar(), $query);
 
         if($result){
             echo 'success';
