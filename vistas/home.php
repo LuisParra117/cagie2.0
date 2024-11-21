@@ -147,7 +147,7 @@ if (!isset($_SESSION['usuarioLogueado']) == true) {
             $('#acercaDe').click(function(){
 
                 Swal.fire({
-                    html: '<div style="text-align: justify;">El sistema de Control Administrativo y Gestión de Instalaciones Escolares fue diseñado y pensado como una solución de control y lógistica para las instalaciones que requieren monitorear el acceso al mismo. CAGIE es capaz de aplicar control en los accesos de las instalaciones donde se desee tener un monitoreo total de: aulas, auditorios, oficinas, salas de juntas, etc, aplicando auditoria dando a conocer información como: día, hora, persona, rol de cada acceso que tiene cualquiera de las instalaciones. <br><br>Desarrolladores: <br>Luis Gilberto Parra López <br>Maximiliano Garibay Ramirez <br><br>Asesor:<br>Edgar Oswaldo Hernández Barajas</div>',
+                    html: '<div style="text-align: justify;">El sistema de Control Administrativo y Gestión de Instalaciones Escolares fue diseñado y pensado como una solución de control y lógistica para las instalaciones que requieren monitorear el acceso al mismo. CAGIE es capaz de aplicar control en los accesos de las instalaciones donde se desee tener un monitoreo total de: aulas, auditorios, oficinas, salas de juntas, etc, aplicando auditoria dando a conocer información como: día, hora, persona, rol de cada acceso que tiene cualquiera de las instalaciones. <br><br>Desarrolladores: <br>Luis Gilberto Parra López <br>Maximiliano Garibay Ramirez</div>',
                     icon: 'info',
                     title: 'Acerca De',
                     confirmButtonColor: '#3085d6',
@@ -159,9 +159,25 @@ if (!isset($_SESSION['usuarioLogueado']) == true) {
 
             $('#salir').click(function(){
 
-                $.post('../controlador/cerrarSesion.php', {}, function(resp){
-                    // window.location.href = '../index.php';
-                    window.location.reload();
+                Swal.fire({
+                    title: "¿Deseas cerrar sesión?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: "Cancelar",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    backdrop: false,
+                    confirmButtonText: "Confirmar"
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+
+                        $.post('../controlador/cerrarSesion.php', {}, function(resp){
+                            window.location.reload();
+                        });
+
+                    }
+
                 });
 
             });
@@ -169,6 +185,7 @@ if (!isset($_SESSION['usuarioLogueado']) == true) {
         });
 
     </script>
+
     <?php
 }
 

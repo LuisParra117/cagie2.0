@@ -82,27 +82,24 @@ if (isset($_SESSION['usuarioLogueado']) == true) {
 
             $('#btnLogin').click(function (e){
                 e.preventDefault();
+
                 var objLogin = {
                     username:$('#username').val(),
                     password:$('#password').val()
                 };
 
                 $.post("/cagie/controlador/login.php", objLogin, function (resp){
-                        
-                    if (resp=='success'){
-                        window.location.href = '/cagie/vistas/home.php'; 
-                    }else {
-
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'Datos de usuario incorrectos',
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            backdrop: false,
-                            timer: 2000
-                        });
-
+                    
+                    switch(resp){
+                        case 'success':
+                            window.location.reload();
+                            break;
+                        case 'error':
+                            mensajeError('Datos de usuario incorrectos');
+                            break;
+                        case 'Error de conexion':
+                            mensajeError("No hay conexion con el servidor");
+                            break;
                     }
 
                 });
@@ -110,6 +107,20 @@ if (isset($_SESSION['usuarioLogueado']) == true) {
             });
 
         });
+
+        function mensajeError(mensaje){
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: mensaje,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                backdrop: false,
+                timer: 4000
+            });
+
+        }
 
     </script>
 

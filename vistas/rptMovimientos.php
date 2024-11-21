@@ -34,9 +34,9 @@
 
                 <div class = "fechas">
                     <label class = "lblFechaInicial" for = "fechaInicial">Fecha Inicial:</label>
-                    <input class = "fechaInicial" type="date" id="fechaInicial" name="fechaInicial" min="2024-01-01" max="2024-09-13" />
+                    <input class = "fechaInicial" type="date" id="fechaInicial" name="fechaInicial" min="2024-01-01"/>
                     <label class = "lblFechaFinal" for = "fechaFinal">Fecha Final:</label>
-                    <input class = "fechaFinal" type="date" id="fechaFinal" name="fechaFinal" min="2024-01-01" max="2024-09-13" />
+                    <input class = "fechaFinal" type="date" id="fechaFinal" name="fechaFinal" min="2024-01-01"/>
                 </div>                
 
                 <script>

@@ -9,7 +9,7 @@
         $cnn -> set_charset("utf8");
 
         if (!$cnn) {
-            die("Error de conexión: " . $cnn->connect_error);
+            return false;
         }else{
             return $cnn;
         }
