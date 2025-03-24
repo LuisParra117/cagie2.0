@@ -13,10 +13,14 @@
     $query3 = "SELECT * FROM coordinaciones;";
     $result3 = mysqli_query(conectar(), $query3);
 
-
-    $query4 =  "SELECT aula FROM aulas
+    if ($_SESSION['rolUsuario'] == 10 || $_SESSION['rolUsuario'] == 11) { //el rol 10 es de soporte, por ello muestra todas laas aulas
+        $query4 = "SELECT aula FROM aulas;";
+    } else {
+        $query4 = "SELECT aula FROM aulas
                 WHERE licenciatura = '" . $_SESSION['licenciaturaUsuario'] . "'
                 AND coordinacion = '" . $_SESSION['coordinacionUsuario'] . "';";
+    }
+
     $result4 = mysqli_query(conectar(),$query4);
 
     while($row4 = mysqli_fetch_array($result4)){
@@ -63,20 +67,9 @@
                 <h1 style = "text-align: center; color: black; margin: 20px; top:-10px;">MONITOREO DE INSTALACIONES</h1>
                 
                 <?php
-                    
-                    if($_SESSION['nombreUsuario'] == 'Luis Gilberto Parra Lopez'){
-                        echo '<h2 style ="text-align: center;">Aulas de la Licenciatura: Ingeniería de Software</h2>';
-                    }else{
-                        echo '<h2 style ="text-align: center;">Aulas de la Licenciatura: Derecho</h2>';
-                    }
-
-                    
+                    echo '<h2 style="text-align: center;">Aulas asignadas al usuario ' . $_SESSION['nombreUsuario'] . '</h2>';
                 ?>
-                
-               
-                <br>
 
-                <!-- <button type = "submit" class = "btnAceptar" name = "btnAceptar" id = "btnAceptar">Aceptar</button> -->
                 <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
                 
                 <div class = "panelAulas">

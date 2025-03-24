@@ -102,7 +102,6 @@ if (!isset($_SESSION['usuarioLogueado']) == true) {
 
                         <ul class = "MenuOpciones">
                             <li><a id = "salir" href = "#salir" >Salir</a></li>
-                            <!-- onclick = "window.location.href = '../index.php'; " -->
                         </ul>
 
                     </li>
