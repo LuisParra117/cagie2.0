@@ -27,90 +27,91 @@
 
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">        
-            
-            <form id = "frmCatAulas" method = "POST">    
-                <h1 style = "text-align: center; color: black; margin: 20px;">CATALOGO DE AULAS</h1>
+        <div class = "window">
+
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarAula" class = "btnCerrarAula" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">        
                 
-                <div class = "txtClaveAula">
-                    <input type = "text" id = "txtClaveAula" name = "txtClaveAula" required >
-                    <label id = "lblAula">Aula</label>
-                </div>
-
-                <button type = "submit" class = "btnAceptar" name = "btnAceptar" id = "btnAceptar">Aceptar</button>
-
-                <div class = "cmbPlantel">
-                    <label class ="lblPlantel" >Plantel</label>
-
-                    <select name = "planteles" class = "planteles" id ="planteles" disabled>
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
+                <form id = "frmCatAulas" method = "POST">    
+                    <h1 style = "text-align: center; color: black; margin: 20px;">CATALOGO DE AULAS</h1>
                     
-                            while($valores = mysqli_fetch_array($result1)){
-                                echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
-                            }
-
-                        ?>
-                        
-                    </select>
-
-                </div>
-                
-                <br>
-
-                <div class = "cmbLicenciatura">
-                    <label class ="lblLicenciatura">Licenciatura</label>
+                    <div class="form-group">
+                        <input type = "text" id = "txtClaveAula" name = "txtClaveAula" placeholder="Aula" required >
+                        <button type = "button" class = "btnBuscarAula" name = "btnBuscarAula" id = "btnBuscarAula">Aceptar</button>
+                    </div>
                     
-                    <select name = "licenciaturas" class= "licenciaturas" id = "licenciaturas" disabled>
-                        <option value="0">Selecciona una opcion</option>
+
+                    <div class = "cmbPlantel">
+                        <label class ="lblPlantel" >Plantel</label>
+
+                        <select name = "planteles" class = "planteles" id ="planteles" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                        <?php
+                                while($valores = mysqli_fetch_array($result1)){
+                                    echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
+                                }
 
-                            while($valores = mysqli_fetch_array($result2)){
-                                echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
-                            }
+                            ?>
+                            
+                        </select>
 
-                        ?>
-
-                    </select>
-
-                </div>
-
-                <br>
-
-                <div class = "cmbCoordinacion">
-                    <label class ="lblCoordinacion">Coordinacion</label>
-
-                    <select name = "coordinaciones" class = "coordinaciones" id = "coordinaciones" disabled>
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
-
-                            while($valores = mysqli_fetch_array($result3)){
-                                echo '<option>'.$valores['idCoordinacion'].'.-'.$valores['coordinacion'].'</option>';
-                            }
-
-                        ?>
-
-                    </select>
-
-                </div>
-                
-                <br>
-
-                <button type = "submit" class = "btnGrabar" name = "btnGrabar" id = "btnGrabar" disabled>Grabar</button>
-                <button type = "submit" class = "btnVerLista" name = "btnVerLista" id = "btnVerLista" onclick="cargaContenido('listaAulas.php')">Ver Lista</button>
-                <p></p>
-
-                <div id="contenido" class = "contenido">
-                <!-- Aquí se cargará el contenido de la página -->
-                </div>
-
-            </form>
+                    </div>
                     
-            
+                    <br>
+
+                    <div class = "cmbLicenciatura">
+                        <label class ="lblLicenciatura">Licenciatura</label>
+                        
+                        <select name = "licenciaturas" class= "licenciaturas" id = "licenciaturas" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
+
+                                while($valores = mysqli_fetch_array($result2)){
+                                    echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
+                                }
+
+                            ?>
+
+                        </select>
+
+                    </div>
+
+                    <br>
+
+                    <div class = "cmbCoordinacion">
+                        <label class ="lblCoordinacion">Coordinacion</label>
+
+                        <select name = "coordinaciones" class = "coordinaciones" id = "coordinaciones" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
+
+                                while($valores = mysqli_fetch_array($result3)){
+                                    echo '<option>'.$valores['idCoordinacion'].'.-'.$valores['coordinacion'].'</option>';
+                                }
+
+                            ?>
+
+                        </select>
+
+                    </div>
+                    
+                    <br>
+
+                    <button type = "submit" class = "btnGrabarAula" name = "btnGrabarAula" id = "btnGrabarAula" disabled>Grabar</button>
+                    <button type = "submit" class = "btnVerListaAula" name = "btnVerListaAula" id = "btnVerListaAula" onclick="cargaContenido('listaAulas.php')">Ver Lista</button>
+                    <p></p>
+
+                    <div id="contenido" class = "contenido">
+                    <!-- Aquí se cargará el contenido de la página -->
+                    </div>
+
+                </form>  
+
+            </div>
 
         </div>
 
@@ -123,7 +124,7 @@
 
     $(function(){
 
-        $('#btnAceptar').click(function(e){
+        $('#btnBuscarAula').click(function(e){
             e.preventDefault();
 
             if($('#txtClaveAula').val() != ''){
@@ -134,10 +135,9 @@
                         document.getElementById("planteles").disabled = false;
                         document.getElementById("licenciaturas").disabled = false;
                         document.getElementById("coordinaciones").disabled = false;
-                        document.getElementById("btnAceptar").disabled = true;
-                        document.getElementById("btnGrabar").disabled = false;
+                        document.getElementById("btnBuscarAula").disabled = true;
+                        document.getElementById("btnGrabarAula").disabled = false;
                         document.getElementById("txtClaveAula").disabled = true;
-                        document.getElementById("lblAula").style = "top: -5px;";
                         $('#planteles').prop('selectedIndex', resp.plantel);
                         $('#licenciaturas').prop('selectedIndex', resp.licenciatura);
                         $('#coordinaciones').prop('selectedIndex', resp.coordinacion);
@@ -188,7 +188,7 @@
 
         });
 
-        $('#btnGrabar').click(function(e){
+        $('#btnGrabarAula').click(function(e){
             e.preventDefault();
 
             var objAula = {
@@ -219,8 +219,8 @@
                     document.getElementById("planteles").disabled = true;
                     document.getElementById("licenciaturas").disabled = true;
                     document.getElementById("coordinaciones").disabled = true;
-                    document.getElementById("btnAceptar").disabled = false;
-                    document.getElementById("btnGrabar").disabled = true;
+                    document.getElementById("btnBuscarAula").disabled = false;
+                    document.getElementById("btnGrabarAula").disabled = true;
                     document.getElementById("txtClaveAula").disabled = false;
                 }else{
                     
