@@ -94,19 +94,21 @@ select.planteles:focus, select.licenciaturas:focus, select.coordinaciones:focus 
     color: white;
 } */
 
-.btnCerrar{
-    position: relative;
-    width: 8%;
-    background-color: #d03232;
-    color: white; 
-    padding: 10px 1px; 
-    font-size: 12px; 
-    border: none; 
-    cursor: pointer; 
-    border-radius: 5px;   
-    transform: translateY(-20%);
-    left: 592px;
-    top: -136px;
+.btnCerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btnCerrar:hover {
+    background-color: #e63939;
 }
 
 .panelAulas{
