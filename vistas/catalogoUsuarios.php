@@ -17,33 +17,29 @@
 
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
+        <div class = "window">
 
-            <form id = "frmUsuarios" method = "POST">
-                <h1 style = "text-align: center; color: black; margin: 20px; top:-10px;">CATALOGO DE USUARIOS</h1>
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarUsuario" class = "btnCerrarUsuario" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
 
-                <div class = "txtUsername">
-                    <input type = "text" id = "txtUsername" name = "txtUsername" id = "txtUsername" required >
-                    <label id = "lblUsername">Nombre de Usuario</label>
-                </div>
+                <form id = "frmUsuarios" method = "POST">
+                    <h1 style = "text-align: center; color: black; margin: 20px; top:-10px;">CATALOGO DE USUARIOS</h1>
 
-                <div class = "txtPassword">
-                    <input type = "password" id = "txtPassword" name = "txtPassword" id = "txtPassword" required >
-                    <label id = "lblPassword">Contraseña</label>
-                </div>
+                    <div class="form-group">
+                        <input type = "text" id = "txtUsername" name = "txtUsername" id = "txtUsername" placeholder="Nombre de Usuario" required >
+                        <button type = "submit" class = "btnBuscarUsuario" name = "btnBuscarUsuario" id ="btnBuscarUsuario">Aceptar</button>
+                    </div>
+                    
+                    <input type = "password" id = "txtPassword" name = "txtPassword" id = "txtPassword" placeholder="Contraseña" disabled required >
+                    <input type = "text" id = "txtCredencial" name = "txtCredencial" id = "txtCredencial" placeholder="Credencial" disabled required >
 
-                <div class = "txtCredencial">
-                    <input type = "text" id = "txtCredencial" name = "txtCredencial" id = "txtCredencial" required >
-                    <label id = "lblCredencial">Credencial</label>
-                </div>
+                    <button type = "submit" class = "btnGrabarUsuario" name = "btnGrabarUsuario" id = "btnGrabarUsuario" disabled>Grabar</button>
+                </form>
 
-                <button type = "submit" class = "btnAceptar" name = "btnAceptar" id ="btnAceptar">Aceptar</button>
-                <button type = "submit" class = "btnGrabar" name = "btnGrabar" id = "btnGrabar" disabled>Grabar</button>
-
-            </form>
+            </div>
 
         </div>
+        
 
     </body>
 
@@ -54,7 +50,7 @@
 
     $(function(){
 
-        $('#btnAceptar').click(function(e){
+        $('#btnBuscarUsuario').click(function(e){
             e.preventDefault();
 
             if($('#txtUsername').val() != ''){
@@ -102,16 +98,16 @@
 
         });
 
-        $('#btnGrabar').click(function(e){
+        $('#btnGrabarUsuario').click(function(e){
             e.preventDefault();
 
             var obj = {
-                usuario:$('txtUsername').val(),
-                password:$('txtPassword').val(),
-                credencial:('txtCredencial').val(),
-                activo:$('activo').val();
-                nuevoUsuario:nuevoUsuario,
-                accion:'grabar'
+                usuario: $('#txtUsername').val(),
+                password: $('#txtPassword').val(),
+                credencial: $('#txtCredencial').val(),
+                activo: $('#activo').val(),
+                nuevoUsuario: nuevoUsuario,
+                accion: 'grabar'
             };
 
             $.post('../controlador/controladorUsuario.php', obj, function(resp){
