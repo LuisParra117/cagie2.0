@@ -20,45 +20,49 @@
 
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">        
+        <div class = "window">
 
-            <form id = "frmCatLicenciaturas" method = "POST">   
-                <h1 style = "text-align: center; color: black; margin: 20px;">CATALOGO DE </h1>
-                <h1 style = "text-align: center; color: black; margin: 20px;">LICENCIATURAS</h1>
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarLicenciatura" class = "btnCerrarLicenciatura" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">        
 
-                <div class = "txtClaveLicenciatura">
-                    <input type = "text" id = "txtClaveLicenciatura" name = "txtClaveLicenciatura" required >
-                    <label id = "lblLicenciatura">Licenciatura</label>
-                </div>
+                <form id = "frmCatLicenciaturas" method = "POST">   
+                    <h1 style = "text-align: center; color: black; margin: 20px;">CATALOGO DE </h1>
+                    <h1 style = "text-align: center; color: black; margin: 20px;">LICENCIATURAS</h1>
 
-                <button type = "submit" class = "btnAceptar" name = "btnAceptar" id = "btnAceptar">Aceptar</button>
+                    <div class = "form-group">
+                        <input type = "text" id = "txtClaveLicenciatura" name = "txtClaveLicenciatura" placeholder="Licenciatura" required >
+                        <button type = "button" class = "btnBuscarLicenciatura" name = "btnBuscarLicenciatura" id = "btnBuscarLicenciatura">Aceptar</button>
+                    </div>
 
-                <div class = "cmbPlantel">
-                    <label class = "lblPlantel">Plantel</label>
-
-                    <select name = "planteles" class = "planteles" id = "planteles" disabled>
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
                     
-                            while($valores = mysqli_fetch_array($result1)){
-                                echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
-                            }
 
-                        ?>
+                    <div class = "cmbPlantel">
+                        <label class = "lblPlantel">Plantel</label>
+
+                        <select name = "planteles" class = "planteles" id = "planteles" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                    </select>
-                    
-                </div>
-                
-                <br>
-                <button type = "submit" class = "btnGrabar" name = "btnGrabar" id = "btnGrabar" disabled>Grabar</button>
-                <button type = "submit" class = "btnVerLista" name = "btnVerLista" id = "btnVerLista" onclick="cargaContenido('listaLicenciaturas.php')">Ver Lista</button>
-                <p></p>
-            </form>
+                                while($valores = mysqli_fetch_array($result1)){
+                                    echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
+                                }
 
+                            ?>
+                            
+                        </select>
+                        
+                    </div>
+                    
+                    <br>
+                    <button type = "submit" class = "btnGrabarLicenciatura" name = "btnGrabarLicenciatura" id = "btnGrabarLicenciatura" disabled>Grabar</button>
+                    <button type = "submit" class = "btnVerListaLicenciatura" name = "btnVerListaLicenciatura" id = "btnVerListaLicenciatura" onclick="cargaContenido('listaLicenciaturas.php')">Ver Lista</button>
+                    <p></p>
+                </form>
+
+            </div>
         </div>
+        
 
     </body>
 
@@ -69,7 +73,7 @@
 
     $(function(){
 
-        $('#btnAceptar').click(function(e){
+        $('#btnBuscarLicenciatura').click(function(e){
             e.preventDefault();
 
             if($('#txtClaveLicenciatura').val() != ''){
@@ -81,7 +85,7 @@
                         document.getElementById("planteles").disabled = false;
                         document.getElementById("txtClaveLicenciatura").disabled = true;
                         document.getElementById("lblLicenciatura").style = "top: -5px;";
-                        document.getElementById("btnGrabar").disabled = false;
+                        document.getElementById("btnGrabarLicenciatura").disabled = false;
                         nuevaLicenciatura = false;
                     }else{
 
@@ -119,7 +123,7 @@
 
         });
 
-        $('#btnGrabar').click(function(e){
+        $('#btnGrabarLicenciatura').click(function(e){
             e.preventDefault();
             var obj = {
                 licenciatura:$('#txtClaveLicenciatura').val(),
@@ -143,7 +147,7 @@
                     $('#txtClaveLicenciatura').val('');
                     $('#planteles').prop('selectedIndex', 0);
                     document.getElementById("planteles").disabled = true;
-                    document.getElementById("btnGrabar").disabled = true;
+                    document.getElementById("btnGrabarLicenciatura").disabled = true;
                     document.getElementById("txtClaveLicenciatura").disabled = false;
                 }else{
 
