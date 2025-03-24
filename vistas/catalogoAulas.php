@@ -124,6 +124,20 @@
 
     $(function(){
 
+        $(document).ready(function() {
+            
+            $('#txtClaveAula').on('keypress', function(event) {
+                
+                if (event.which == 13) {
+                    event.preventDefault();
+
+                    $('#btnBuscarAula').click();
+                }
+
+            });
+            
+        });
+
         $('#btnBuscarAula').click(function(e){
             e.preventDefault();
 
@@ -157,6 +171,7 @@
                                 document.getElementById("planteles").disabled = false;
                                 document.getElementById("licenciaturas").disabled = false;
                                 document.getElementById("coordinaciones").disabled = false;
+                                document.getElementById("btnGrabarAula").disabled = false;
                                 nuevaAula = true;
                             } else if (result.isDenied) {
                                 $('#txtClaveAula').val('');
