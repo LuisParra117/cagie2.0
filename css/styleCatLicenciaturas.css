@@ -81,7 +81,7 @@
     flex: 3; /* Ocupa el 30% del espacio */
     height: 42px;
     padding: 0; 
-    background-color: #007bff;
+    background-color: #1A1D57;
     color: white;
     border: none;
     border-radius: 5px;
@@ -95,7 +95,7 @@
 }
 
 .window .btnBuscarLicenciatura:hover {
-    background-color: #0056b3;
+    background-color: #1A1D57;
 }
 
 
@@ -112,7 +112,7 @@
 }
 
 .window input[type="text"]:focus {
-    border-color: #5b9bd5;
+    border-color: #1A1D57;
 }
 
 /* Botón Grabar */
@@ -121,7 +121,7 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #28a745;
+    background-color: #1A1D57;
     color: white;
     font-size: 14px;
     cursor: pointer;
@@ -137,7 +137,7 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #28a745;
+    background-color: #1A1D57;
     color: white;
     font-size: 14px;
     cursor: pointer;
@@ -145,7 +145,7 @@
 }
 
 .window .btnVerListaLicenciatura:hover {
-    background-color: #1e7e34;
+    background-color: #1A1D57;
 }
 
 /* Estilo general para los select */
