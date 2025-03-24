@@ -136,6 +136,20 @@
 
     $(function(){
 
+        $(document).ready(function() {
+            
+            $('#txtClavePlantel').on('keypress', function(event) {
+                
+                if (event.which == 13) {
+                    event.preventDefault();
+
+                    $('#btnBuscarPlantel').click();
+                }
+
+            });
+            
+        });
+
         $('#btnBuscarPlantel').click(function(e){
             e.preventDefault();
 
@@ -176,6 +190,7 @@
                                 document.getElementById("colonias").disabled = false;
                                 document.getElementById("localidades").disabled = false;
                                 document.getElementById("estados").disabled = false;
+                                document.getElementById("btnGrabarPlantel").disabled = false;
                                 activaDesactivaTxt(false);
                                 nuevoPlantel = true;
                             } else if (result.isDenied) {

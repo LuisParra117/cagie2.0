@@ -39,7 +39,7 @@
         $nuevoPlantel = $_POST['nuevoPlantel'];
     
         if ($nuevoPlantel == 'true') {
-            $query = "INSERT INTO planteles (plantel, calle, numeroExterior, numeroInterior, codigoPostal, 
+            $query = "INSERT INTO planteles (clavePlantel, calle, numeroExterior, numeroInterior, codigoPostal, 
                         colonia, localidad, estado)
                         VALUES ('" . $plantel . "','" . $calle . "','" . $numeroExterior . 
                         "','" . $numeroInterior . "','" . $codigoPostal . "','" . $colonia . "','" . $localidad . 
