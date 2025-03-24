@@ -22,11 +22,10 @@
             $this->Cell(0, 5, 'Fecha de generacion del reporte: ' . $fecha_generacion, 0, 1);
             $this->Cell(0, 10, "Informacion generada del " . $_GET['fechaInicial'] . " al " . $_GET['fechaFinal'] . "" , 0, 1);
             $this->SetFont('Arial','B',12);
-            $this->Cell(50,10,'Fecha',0,0,'c',0);
-            $this->Cell(20,10,'Aula',0,0,'c',0);
-            $this->Cell(20,10,'Plantel',0,0,'c',0);
-            $this->Cell(45,10,'Licenciatura',0,0,'c',0);
-            $this->Cell(45,10,utf8_decode('Coordinación'),0,0,'c',0);
+            $this->Cell(45,10,'Fecha',0,0,'c',0);
+            $this->Cell(30,10,'Aula',0,0,'c',0);
+            $this->Cell(30,10,'Plantel',0,0,'c',0);
+            $this->Cell(55,10,'Licenciatura',0,0,'c',0);
             $this->Cell(30,10,'Movimiento',0,0,'c',0);
             $this->Cell(50,10,'Nombre',0,0,'c',0);
             $this->Cell(40,10,'Rol',0,1,'c',0);
@@ -60,8 +59,8 @@
                 FROM historialAccesos
                 JOIN aulas ON historialAccesos.aula = aulas.idAula
                 JOIN planteles ON aulas.plantel = planteles.idPlantel
-                JOIN licenciaturas ON aulas.licenciatura = licenciaturas.idLicenciatura
-                JOIN credenciales ON historialAccesos.credencial = credenciales.idCredencial
+                JOIN credenciales ON historialAccesos.credencial = credenciales.idCredencial  -- Corregido
+                JOIN licenciaturas ON credenciales.licenciatura = licenciaturas.idLicenciatura  -- Corregido
                 JOIN coordinaciones ON credenciales.coordinacion = coordinaciones.idCoordinacion
                 JOIN roles ON credenciales.rol = roles.idRol";
     
@@ -92,11 +91,10 @@
     while($row = $result->fetch_assoc()){
         $pdf->SetFont('Arial','',10);
         $pdf->Cell(25,10,$row['fecha'],0,0,'c',0);
-        $pdf->Cell(25,10,$row['hora'],0,0,'c',0);
-        $pdf->Cell(20,10,$row['aula'],0,0,'c',0);
-        $pdf->Cell(20,10,$row['plantel'],0,0,'c',0);
-        $pdf->Cell(45,10,utf8_decode($row['licenciatura']),0,0,'c',0);
-        $pdf->Cell(45,10,utf8_decode($row['coordinacion']),0,0,'c',0);
+        $pdf->Cell(20,10,$row['hora'],0,0,'c',0);
+        $pdf->Cell(30,10,$row['aula'],0,0,'c',0);
+        $pdf->Cell(30,10,$row['plantel'],0,0,'c',0);
+        $pdf->Cell(55,10,utf8_decode($row['licenciatura']),0,0,'c',0);
         $pdf->Cell(30,10,$row['movimiento'],0,0,'c',0);
         $pdf->Cell(50,10,utf8_decode($row['nombre']),0,0,'c',0);
         $pdf->Cell(40,10,$row['rol'],0,1,'c',0);
