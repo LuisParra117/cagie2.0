@@ -35,55 +35,44 @@
 
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
+        <div class = "window">
 
-            <form id = "frmRptLicenciaturas" method = "POST">
-                <h1 style = "text-align: center; color: black; margin: 20px;">REPORTE DE </h1>
-                <h1 style = "text-align: center; color: black; margin: 20px;">LICENCIATURAS</h1>
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarRptLicenciatura" class = "btnCerrarRptLicenciatura" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
 
-                <div class = "cmbPlantel">
-                    <label class = "lblPlantel">Plantel</label>
+                <form id = "frmRptLicenciaturas" method = "POST">
+                    <h1 style = "text-align: center; color: black; margin: 20px;">REPORTE DE </h1>
+                    <h1 style = "text-align: center; color: black; margin: 20px;">LICENCIATURAS</h1>
 
-                    <select name = "planteles" class = "planteles" id = "planteles">
-                        <option value="0">Selecciona una opcion</option>
+                    <div class = "cmbPlantel">
+                        <label class = "lblPlantel">Plantel</label>
+
+                        <select name = "planteles" class = "planteles" id = "planteles">
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result1)){
-                                echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
-                            }
+                                while($valores = mysqli_fetch_array($result1)){
+                                    echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
+                                }
 
-                        ?>
-                        
-                    </select>
-                </div>
-                <p></p>
+                            ?>
+                            
+                        </select>
 
-                <fieldset>
-                    <legend>Generar el reporte</legend>
-                    <p></p>
-                    <p></p>
-                    <!-- <label>
-                        <input class = "rdPantalla" type ="radio" id="pantalla" name ="reporte" value = "Pantalla">Pantalla
-                    </label>
+                    </div>
 
-                    <label>
-                        <input class = "rdExcel" type ="radio" id="excel" name ="reporte" value = "Excel">Excel
-                    </label>
+                    <fieldset>
+                        <legend>Generar el reporte</legend>
+                        <input type = "button" class = "btnAceptarRptLicenciatura" name = "btnAceptarRptLicenciatura" value = "Aceptar" onclick = "muestraReporte('../reportes/reporteLicenciaturas.php')">
+                    </fieldset>
 
-                    <label>
-                        <input class = "rdPdf" type ="radio" id="pdf" name ="reporte" value = "Pdf">Pdf
-                    </label> -->
-                    
-                    <input type = "button" class = "btnAceptar" name = "btnAceptar" value = "Aceptar" onclick = "muestraReporte('../reportes/reporteLicenciaturas.php')">
-                </fieldset>
-                
-                <p></p>
+                </form>
 
-            </form>
+            </div>
 
         </div>
+        
 
     </body>
 

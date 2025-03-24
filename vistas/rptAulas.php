@@ -23,78 +23,63 @@
 
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
+        <div class = "window">
 
-            <form id = "frmRptAulas" method = "POST">
-                <h1 style = "text-align: center; color: black; margin: 20px;">REPORTE DE AULAS</h1>
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarRptAula" class = "btnCerrarRptAula" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
 
-                <div class = "cmbPlantel">
-                    <label class = "lblPlantel">Plantel</label>
+                <form id = "frmRptAulas" method = "POST">
+                    <h1 style = "text-align: center; color: black; margin: 20px;">REPORTE DE AULAS</h1>
 
-                    <select name = "planteles" class = "planteles" id =  "planteles">
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result1)){
-                                echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
-                            }
+                    <div class = "cmbPlantel">
+                        <label class = "lblPlantel">Plantel</label>
 
-                        ?>
+                        <select name = "planteles" class = "planteles" id =  "planteles">
+                            <option value="0">Selecciona una opcion</option>
                             
-                    </select>
-
-                </div>
-
-                <p></p>
-
-                <div class = "cmbLicenciatura">
-                    <label class = "lblLicenciatura">Licenciatura</label>
-
-                    <select name = "licenciaturas" class = "licenciaturas" id = "licenciaturas">
-                        <option value="0">Selecciona una opcion</option>
+                            <?php
                         
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result2)){
-                                echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
-                            }
+                                while($valores = mysqli_fetch_array($result1)){
+                                    echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
+                                }
 
-                        ?>
+                            ?>
+                                
+                        </select>
+
+                    </div>
+
+                    <div class = "cmbLicenciatura">
+                        <label class = "lblLicenciatura">Licenciatura</label>
+
+                        <select name = "licenciaturas" class = "licenciaturas" id = "licenciaturas">
+                            <option value="0">Selecciona una opcion</option>
                             
-                    </select>
+                            <?php
+                        
+                                while($valores = mysqli_fetch_array($result2)){
+                                    echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
+                                }
 
-                </div>
-                
-                <p></p>
+                            ?>
+                                
+                        </select>
 
-                <fieldset> 
-                    <legend>Generar el reporte</legend>
-                    <p></p>
-                    <p></p>
-                    <!-- <label>
-                        <input class = "rdPantalla" type ="radio" id="pantalla" name ="reporte" value = "Pantalla">Pantalla
-                    </label>
-
-                    <label class = "lblExcel">
-                        <input class = "rdExcel" type ="radio" id="excel" name ="reporte" value = "Excel">Excel
-                    </label>
-
-                    <label class = "lblPdf">
-                        <input class = "rdPdf" type ="radio" id="pdf" name ="reporte" value = "Pdf">Pdf
-                    </label> -->
+                    </div>
                     
-                    <input type = "button" class = "btnAceptar" name = "btnAceptar" id = "btnAceptar" value = "Aceptar" onclick = "muestraReporte('../reportes/reporteAulas.php')">
-                     
-                </fieldset> 
-                
-                <p></p>
+                    <fieldset> 
+                        <legend>Generar el reporte</legend>
+                        
+                        <input type = "button" class = "btnAceptarRptAula" name = "btnAceptarRptAula" id = "btnAceptarRptAula" value = "Aceptar" onclick = "muestraReporte('../reportes/reporteAulas.php')">
+                        
+                    </fieldset> 
+                    
+                </form>
 
-            </form>
+            </div>
 
         </div>
-
+        
     </body>
 
 </html>

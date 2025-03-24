@@ -26,132 +26,112 @@
 
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
+        <div class = "window">
 
-            <form id = "frmRptMovimientos" method = "POST">
-                <h1 style = "text-align: center; color: black; margin: 20px;">REPORTE DE MOVIMIENTOS</h1>
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarRptMovimientos" class = "btnCerrarRptMovimientos" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
 
-                <div class = "fechas">
-                    <label class = "lblFechaInicial" for = "fechaInicial">Fecha Inicial:</label>
-                    <input class = "fechaInicial" type="date" id="fechaInicial" name="fechaInicial" min="2024-01-01"/>
-                    <label class = "lblFechaFinal" for = "fechaFinal">Fecha Final:</label>
-                    <input class = "fechaFinal" type="date" id="fechaFinal" name="fechaFinal" min="2024-01-01"/>
-                </div>                
+                <form id = "frmRptMovimientos" method = "POST">
+                    <h1 style = "text-align: center; color: black; margin: 20px;">REPORTE DE MOVIMIENTOS</h1>
 
-                <script>
+                    <div class = "fechas">
+                        <label class = "lblFechaInicial" for = "fechaInicial">Fecha Inicial:</label>
+                        <input class = "fechaInicial" type="date" id="fechaInicial" name="fechaInicial" min="2024-01-01"/>
+                        <label class = "lblFechaFinal" for = "fechaFinal">Fecha Final:</label>
+                        <input class = "fechaFinal" type="date" id="fechaFinal" name="fechaFinal" min="2024-01-01"/>
+                    </div>
 
-                    function setTodayDate() {
-                        const today = new Date();
-                        const year = today.getFullYear();
-                        const month = String(today.getMonth() + 1).padStart(2, '0');
-                        const day = String(today.getDate()).padStart(2, '0');
-                        const formattedDate = `${year}-${month}-${day}`;
-                        
-                        const fechaInicial = document.getElementById('fechaInicial');
-                        const fechaFinal = document.getElementById('fechaFinal');
-                        
-                        fechaInicial.setAttribute('value', formattedDate);
-                        fechaFinal.setAttribute('value', formattedDate);
-                        
-                        fechaInicial.value = formattedDate;
-                        fechaFinal.value = formattedDate;
-                        fechaInicial.dispatchEvent(new Event('change', { bubbles: true }));
-                        fechaFinal.dispatchEvent(new Event('change', { bubbles: true }));
+                    <script>
 
-                        fechaInicial.dispatchEvent(new Event('input', { bubbles: true }));
-                        fechaFinal.dispatchEvent(new Event('input', { bubbles: true }));
-                    }
-
-                    window.onload = setTodayDate;
-                </script>
-                
-                <p>‎ </p>
-
-                <div class = "cmbPlantel">
-                    <label class = "lblPlantel">Plantel</label>
-
-                    <select name = "planteles" class = "planteles" id = "planteles">
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result1)){
-                                echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
-                            }
-
-                        ?>
+                        function setTodayDate() {
+                            const today = new Date();
+                            const year = today.getFullYear();
+                            const month = String(today.getMonth() + 1).padStart(2, '0');
+                            const day = String(today.getDate()).padStart(2, '0');
+                            const formattedDate = `${year}-${month}-${day}`;
                             
-                    </select>
-
-                </div>
-
-                <p></p>
-
-                <div class = "cmbLicenciatura">
-                    <label class = "lblLicenciatura">Licenciatura</label>
-
-                    <select name = "licenciaturas" class = "licenciaturas" id = "licenciaturas">
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result2)){
-                                echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
-                            }
-
-                        ?>
+                            const fechaInicial = document.getElementById('fechaInicial');
+                            const fechaFinal = document.getElementById('fechaFinal');
                             
-                    </select>
-
-                </div>
-
-                <p></p>
-
-                <div class = "cmbAula">
-                    <label class = "lblAula">Aula</label>
-
-                    <select name = "aulas" class = "aulas" id = "aulas" >
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result3)){
-                                echo '<option>'.$valores['idAula'].'.-'.$valores['aula'].'</option>';
-                            }
-
-                        ?>
+                            fechaInicial.setAttribute('value', formattedDate);
+                            fechaFinal.setAttribute('value', formattedDate);
                             
-                    </select>
+                            fechaInicial.value = formattedDate;
+                            fechaFinal.value = formattedDate;
+                            fechaInicial.dispatchEvent(new Event('change', { bubbles: true }));
+                            fechaFinal.dispatchEvent(new Event('change', { bubbles: true }));
 
-                </div>
+                            fechaInicial.dispatchEvent(new Event('input', { bubbles: true }));
+                            fechaFinal.dispatchEvent(new Event('input', { bubbles: true }));
+                        }
 
-                <p></p>
+                        window.onload = setTodayDate;
+                    </script>
 
-                <fieldset>
-                    <legend>Generar el reporte</legend>
-                    <p></p>
-                    <p></p>
-                    <!-- <label>
-                        <input class = "rdPantalla" type ="radio" id="pantalla" name ="reporte" value = "Pantalla">Pantalla
-                    </label>
+                    <div class = "cmbPlantel">
+                        <label class = "lblPlantel">Plantel</label>
 
-                    <label class = "lblExcel">
-                        <input class = "rdExcel" type ="radio" id="excel" name ="reporte" value = "Excel">Excel
-                    </label>
+                        <select name = "planteles" class = "planteles" id = "planteles">
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
+                        
+                                while($valores = mysqli_fetch_array($result1)){
+                                    echo '<option>'.$valores['idPlantel'].'.-'.$valores['clavePlantel'].'</option>';
+                                }
 
-                    <label class = "lblPdf">
-                        <input class = "rdPdf" type ="radio" id="pdf" name ="reporte" value = "Pdf">Pdf
-                    </label> -->
+                            ?>
+                                
+                        </select>
+
+                    </div>
+
+                    <div class = "cmbLicenciatura">
+                        <label class = "lblLicenciatura">Licenciatura</label>
+
+                        <select name = "licenciaturas" class = "licenciaturas" id = "licenciaturas">
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
+                        
+                                while($valores = mysqli_fetch_array($result2)){
+                                    echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
+                                }
+
+                            ?>
+                                
+                        </select>
+
+                    </div>
+
+                    <div class = "cmbAula">
+                        <label class = "lblAula">Aula</label>
+
+                        <select name = "aulas" class = "aulas" id = "aulas" >
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
+                        
+                                while($valores = mysqli_fetch_array($result3)){
+                                    echo '<option>'.$valores['idAula'].'.-'.$valores['aula'].'</option>';
+                                }
+
+                            ?>
+                                
+                        </select>
+
+                    </div>
+
+                    <fieldset>
+                        <legend>Generar el reporte</legend>
+                        <input type = "button" class = "btnAceptarRptMovimientos" name = "btnAceptarRptMovimientos" value = "Aceptar" onclick="muestraReporte('../reportes/reporteMovimientos.php')">
+                    </fieldset>
                     
-                    <input type = "button" class = "btnAceptar" name = "btnAceptar" value = "Aceptar" onclick="muestraReporte('../reportes/reporteMovimientos.php')">
-                </fieldset>
-                
-                <p></p>
+                </form>
 
-            </form>
-
+            </div>
         </div>
+        
 
     </body>
 

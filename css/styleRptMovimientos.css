@@ -1,100 +1,266 @@
-.catalogo{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border-radius: 10px;
-    background-color:rgba(225, 209, 209, 1);  
-}
-
-.catalogo form{
-    padding: 0 40px;
+.window * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-.btnCerrar{
+/* Ventana emergente */
+.window {
     position: fixed;
-    width: 10%;
-    padding: 10px 15px;
-    font-size: 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    left: 508px;
-    background-color: #d03232;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.window .catalog {
+    position: relative;
+    background-color: #f8e9e9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.window .catalog h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.window .btnCerrarRptMovimientos {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d;
     color: white;
-}
-
-.btnAceptar{
-    position: absolute;
-    width: 50%;
-    background-color: #1A1D57;
-    color: white; 
-    font-size: 12px; 
-    border: none; 
-    cursor: pointer; 
-    border-radius: 5px;   
-    transform: translateY(-20%);
-    left: 146px;
-    height: 26px;
-    top: 243px;
-}
-
-.lblExcel{
-    position: relative;
-    left: 36px;
-}
-
-.lblPdf{
-    position: relative;
-    left: 90px;
-}
-
-.fechas{
-    position: fixed;
-    left: 106px;
-}
-
-.lblFechaFinal{
-    position: absolute;   
-    width: 60%;
-    left: 198px;
-    top:2px;
-}
-
-.fechaFinal{
-    position: absolute;
-    left: 290px;
-}
-
-select.planteles, select.licenciaturas, select.aulas  {
-    background: transparent;
-    border: 1px solid #aaa;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
     font-size: 14px;
-    height: 25px;
-    padding: 5px;
-    width: 200px;
-    position: relative;
-    left: 20px;
 }
 
-select.aulas{
-    position: absolute;
-    left: 150px;
-    top: 180px
+.window .btnCerrarRptMovimientos:hover {
+    background-color: #e63939;
 }
 
-select.planteles{
-    position: absolute;
-    left: 150px;
+.window .btnAceptarRptMovimientos {
+    height: 42px;
+    padding: 0 20px; /* Asegúrate de que tenga suficiente padding */
+    background-color: #1A1D57;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center; /* Centra el texto dentro del botón */
+    min-width: 80px;
+    width: auto; /* El tamaño del botón será el adecuado al contenido */
+    margin-bottom: 10px;
 }
 
-.fechaInicial, .fechaFinal {
-    padding: 0px;
-    border: 1px solid #575f69; /* Cambia el color y grosor del borde */
-    border-radius: 4px;
-    font-size: 12px;
+/* Estilo para el hover del botón */
+.window .btnAceptarRptMovimientos:hover {
+    background-color: #1A1D57;
+}
+
+/* Estilo para el fieldset */
+fieldset {
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Otros campos del formulario */
+.window input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.window input[type="text"]:focus {
+    border-color: #1A1D57;
+}
+
+/* Botón Grabar */
+.window .btnGrabarPlantel {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1A1D57;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.window .btnGrabarPlantel:hover {
+    background-color: #1A1D57;
+}
+
+.window .btnVerListaPlantel {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1A1D57;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.window .btnVerListaPlantel:hover {
+    background-color: #1A1D57;
+}
+
+/* Estilo general para los select */
+.window select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s, background-color 0.3s;
+    background-color: white;
+    appearance: none; /* Elimina el estilo nativo del navegador */
+    cursor: pointer;
+}
+
+/* Cambia el color del borde al enfocar */
+.window select:focus {
+    border-color: #5b9bd5;
+    background-color: #f8f9fa;
+}
+
+/* Contenedor de cada select para alineación */
+.window .cmbPlantel,
+.window .cmbLicenciatura,
+.window .cmbAula{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: left;
+}
+
+/* Estilo de las etiquetas */
+.window label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Estilo general para el contenedor de fechas */
+.window .fechas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas */
+.window .fechas label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Estilo para los inputs de fecha */
+.window .fechas input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.window .fechas input[type="date"]:focus {
+    border-color: #1A1D57;
+}
+
+/* Asegura que los campos de fecha estén uno al lado del otro en pantallas grandes */
+@media (min-width: 768px) {
+    .window .fechas {
+        flex-direction: row;
+    }
+
+    .window .fechas .fecha {
+        width: 45%;
+    }
+}
+
+/* En pantallas pequeñas, los campos estarán apilados */
+@media (max-width: 768px) {
+    .window .fechas {
+        flex-direction: column;
+    }
+
+    .window .fechas .fecha {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+    .window .catalog {
+        width: 95%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .window .catalog h1 {
+        font-size: 20px;
+    }
+
+    .window .form-group {
+        flex-direction: column;
+    }
+
+    .window #txtClient,
+    .window .btnSearchClient {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .window .fechas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .window .fechas input[type="date"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .window .fechas label {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
 }
