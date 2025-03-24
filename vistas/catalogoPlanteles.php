@@ -30,124 +30,100 @@
     
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
-            
-            <form id = "frmCatCoordinaciones" method = "POST">
-                <h1 style = "text-align: center; color: black; margin: 20px; top:-10px;">CATALOGO DE PLANTELES</h1>
+        <div class = "window">
 
-                <div class = "txtClavePlantel">
-                    
-                    <input type = "text" id = "txtClavePlantel" name = "txtClavePlantel" id = "txtClavePlantel" required >
-                    <label id = "lblClavePlantel">Plantel</label>
-                </div>
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarPlantel" class = "btnCerrarPlantel" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">
                 
-                <div class = "txtCalle">
-                    <input type = "text" id = "txtCalle" name = "txtCalle" id = "txtCalle" required disabled>
-                    <label>Calle</label>
-                </div>
+                <form id = "frmCatCoordinaciones" method = "POST">
+                    <h1 style = "text-align: center; color: black; margin: 20px; top:-10px;">CATALOGO DE PLANTELES</h1>
 
-                <div class = "txtExterior">
-                    <input type = "text" id = "txtExterior" name = "txtExterior" id = "txtExterior" required disabled>
-                    <label>Numero Exterior</label>
-                </div>
-
-                <div class = "txtInterior">
-                    <input type = "text" id = "txtInterior" name = "txtInterior" id = "txtInterior" required disabled>
-                    <label>Numero Interior</label>
-                </div>
-                <p>‎ </p>
-                <p>‎ </p>
-                <div class = "txtLatitud">
-                    <input type = "text" id = "txtLatitud" name = "txtLatitud"  id = "txtLatitud" required disabled>
-                    <label>Latitud</label>
-                </div>
-
-                <div class = "txtLongitud">
-                    <input type = "text" id = "txtLongitud" name = "txtLongitud" id = "txtLongitud" required disabled>
-                    <label>Longitud</label>
-                </div>                
-
-                <div class = "cmbCodigoPostal">
-                    <label class ="lblCodigoPostal" >Codigo Postal</label>
-
-                    <select name = "codigosPostales" class = "codigosPostales" id = "codigosPostales" disabled>
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
+                    <div class = "form-group">
+                        <input type = "text" id = "txtClavePlantel" name = "txtClavePlantel" id = "txtClavePlantel" placeholder="Plantel" required >
+                        <button type = "button" class = "btnBuscarPlantel" name = "btnBuscarPlantel" id ="btnBuscarPlantel">Aceptar</button>
+                    </div>
                     
-                            while($valores = mysqli_fetch_array($result2)){
-                                echo '<option>'.$valores['idCodigoPostal'].'.-'.$valores['codigoPostal'].'</option>';
-                            }
+                    <input type = "text" id = "txtCalle" name = "txtCalle" id = "txtCalle" placeholder="Calle" required disabled>
+                    <input type = "text" id = "txtExterior" name = "txtExterior" id = "txtExterior" placeholder="Numero Exterior"required disabled>
+                    <input type = "text" id = "txtInterior" name = "txtInterior" id = "txtInterior" placeholder="Numero Interior" required disabled>            
 
-                        ?>
+                    <div class = "cmbCodigoPostal">
+                        <label class ="lblCodigoPostal" >Codigo Postal</label>
+
+                        <select name = "codigosPostales" class = "codigosPostales" id = "codigosPostales" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                    </select>
+                                while($valores = mysqli_fetch_array($result2)){
+                                    echo '<option>'.$valores['idCodigoPostal'].'.-'.$valores['codigoPostal'].'</option>';
+                                }
 
-                </div>
-                
-                <div class = "cmbColonia">
-                    <label class ="lblColonia" >Colonia</label>
+                            ?>
+                            
+                        </select>
 
-                    <select name = "colonias" class = "colonias" id = "colonias" disabled>
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
+                    </div>
                     
-                            while($valores = mysqli_fetch_array($result1)){
-                                echo '<option>'.$valores['idColonia'].'.-'.$valores['colonia'].'</option>';
-                            }
+                    <div class = "cmbColonia">
+                        <label class ="lblColonia" >Colonia</label>
 
-                        ?>
+                        <select name = "colonias" class = "colonias" id = "colonias" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                    </select>
+                                while($valores = mysqli_fetch_array($result1)){
+                                    echo '<option>'.$valores['idColonia'].'.-'.$valores['colonia'].'</option>';
+                                }
 
-                </div>
+                            ?>
+                            
+                        </select>
 
-                <div class = "cmbLocalidad">
-                    <label class ="lblLocalidad" >Localidad</label>
+                    </div>
 
-                    <select name = "localidades" class = "localidades" id = "localidades" disabled>
-                        <option value="0">Selecciona una opcion</option>
+                    <div class = "cmbLocalidad">
+                        <label class ="lblLocalidad" >Localidad</label>
+
+                        <select name = "localidades" class = "localidades" id = "localidades" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result3)){
-                                echo '<option>'.$valores['idLocalidad'].'.-'.$valores['localidad'].'</option>';
-                            }
+                                while($valores = mysqli_fetch_array($result3)){
+                                    echo '<option>'.$valores['idLocalidad'].'.-'.$valores['localidad'].'</option>';
+                                }
 
-                        ?>
+                            ?>
+                            
+                        </select>
+
+                    </div>
+
+                    <div class = "cmbEstado">
+                        <label class ="lblEstado" >Estado</label>
+
+                        <select name = "estados" class = "estados" id = "estados" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                    </select>
+                                while($valores = mysqli_fetch_array($result4)){
+                                    echo '<option>'.$valores['idEstado'].'.-'.$valores['estado'].'</option>';
+                                }
 
-                </div>
+                            ?>
+                            
+                        </select>
 
-                <div class = "cmbEstado">
-                    <label class ="lblEstado" >Estado</label>
+                    </div>
+                                        
+                    <button type = "submit" class = "btnGrabarPlantel" name = "btnGrabarPlantel" id = "btnGrabarPlantel" disabled>Grabar</button>
+                    <button type = "submit" class = "btnVerListaPlantel" name = "btnVerListaPlantel" id = "btnVerListaPlantel" onclick="cargaContenido('listaPlanteles.php')">Ver Lista</button>
+                </form>
 
-                    <select name = "estados" class = "estados" id = "estados" disabled>
-                        <option value="0">Selecciona una opcion</option>
-                        
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result4)){
-                                echo '<option>'.$valores['idEstado'].'.-'.$valores['estado'].'</option>';
-                            }
-
-                        ?>
-                        
-                    </select>
-
-                </div>
-                
-                <br>
-                <p>‎ </p>
-                <button type = "submit" class = "btnAceptar" name = "btnAceptar" id ="btnAceptar">Aceptar</button>
-                <p>‎ </p>
-                <button type = "submit" class = "btnGrabar" name = "btnGrabar" id = "btnGrabar" disabled>Grabar</button>
-                <button type = "submit" class = "btnVerLista" name = "btnVerLista" id = "btnVerLista" onclick="cargaContenido('listaPlanteles.php')">Ver Lista</button>
-                <p></p>
-            </form>
+            </div>
 
         </div>
 
@@ -160,7 +136,7 @@
 
     $(function(){
 
-        $('#btnAceptar').click(function(e){
+        $('#btnBuscarPlantel').click(function(e){
             e.preventDefault();
 
             if($('#txtClavePlantel').val() != ''){
@@ -173,10 +149,9 @@
                         document.getElementById("colonias").disabled = false;
                         document.getElementById("localidades").disabled = false;
                         document.getElementById("estados").disabled = false;
-                        document.getElementById("btnAceptar").disabled = true;
-                        document.getElementById("btnGrabar").disabled = false;
+                        document.getElementById("btnBuscarPlantel").disabled = true;
+                        document.getElementById("btnGrabarPlantel").disabled = false;
                         document.getElementById("txtClavePlantel").disabled = true;
-                        document.getElementById("lblClavePlantel").style = "top: -5px;";
                         $('#codigosPostales').prop('selectedIndex', resp.codigoPostal);
                         $('#colonias').prop('selectedIndex', resp.colonia);
                         $('#localidades').prop('selectedIndex', resp.localidad);
@@ -184,8 +159,6 @@
                         $('#txtCalle').val(resp.calle);
                         $('#txtExterior').val(resp.numeroExterior);
                         $('#txtInterior').val(resp.numeroInterior);
-                        $('#txtLatitud').val(resp.latitud);
-                        $('#txtLongitud').val(resp.longitud);
                         nuevoPlantel = false;
                     }else{
 
@@ -238,13 +211,11 @@
 
         });
 
-        $('#btnGrabar').click(function(e){
+        $('#btnGrabarPlantel').click(function(e){
             e.preventDefault();
 
             var obj = {
                 plantel:$('#txtClavePlantel').val(),
-                latitud:$('#txtLatitud').val(),
-                longitud:$('#txtLongitud').val(),
                 calle:$('#txtCalle').val(),
                 numeroExterior:$('#txtExterior').val(),
                 numeroInterior:$('#txtInterior').val(),
@@ -269,8 +240,6 @@
                     });
 
                     $('#txtClavePlantel').val('');
-                    $('#txtLatitud').val('');
-                    $('#txtLongitud').val('');
                     $('#txtCalle').val('');
                     $('#txtExterior').val('');
                     $('#txtInterior').val('');
@@ -282,8 +251,8 @@
                     document.getElementById("colonias").disabled = true;
                     document.getElementById("localidades").disabled = true;
                     document.getElementById("estados").disabled = true;
-                    document.getElementById("btnAceptar").disabled = false;
-                    document.getElementById("btnGrabar").disabled = true;
+                    document.getElementById("btnBuscarPlantel").disabled = false;
+                    document.getElementById("btnGrabarPlantel").disabled = true;
                     document.getElementById("txtClavePlantel").disabled = false;
                     activaDesactivaTxt(true);
                 }else{
@@ -306,8 +275,6 @@
 
     function activaDesactivaTxt(valor){
         document.getElementById("txtCalle").disabled = valor;
-        document.getElementById("txtLatitud").disabled = valor;
-        document.getElementById("txtLongitud").disabled = valor;
         document.getElementById("txtExterior").disabled = valor;
         document.getElementById("txtInterior").disabled = valor;
     }
