@@ -20,45 +20,48 @@
 
     <body>
         
-        <div class = "catalogo">
-            <input type = "button" name = "btnCerrar" class = "btnCerrar" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">        
+        <div class = "window">
 
-            <form id = "frmCatCoordinaciones" method = "POST">
-                <h1 style = "text-align: center; color: black; margin: 20px;">CATALOGO DE </h1>
-                <h1 style = "text-align: center; color: black; margin: 20px;">COORDINACIONES</h1>
+            <div class = "catalog">
+                <input type = "button" name = "btnCerrarCoordinacion" class = "btnCerrarCoordinacion" value = "Cerrar" onclick = "window.location.href = '../vistas/home.php'">        
 
-                <div class = "txtClaveCoordinacion">
-                    <input type = "text" id = "txtClaveCoordinacion" name = "txtClaveCoordinacion" required >
-                    <label id = "lblCoordinacion">Coordinacion</label>
-                </div>
+                <form id = "frmCatCoordinaciones" method = "POST">
+                    <h1 style = "text-align: center; color: black; margin: 20px;">CATALOGO DE </h1>
+                    <h1 style = "text-align: center; color: black; margin: 20px;">COORDINACIONES</h1>
 
-                <button type = "submit" class = "btnAceptar" name = "btnAceptar" id = "btnAceptar">Aceptar</button>
+                    <div class = "form-group">
+                        <input type = "text" id = "txtClaveCoordinacion" name = "txtClaveCoordinacion" placeholder="Coordincion" required >
+                        <button type = "button" class = "btnBuscarCoordinacion" name = "btnBuscarCoordinacion" id = "btnBuscarCoordinacion">Aceptar</button>
+                    </div>
 
-                <div class = "cmbLicenciatura">
-                    <label class = "lblLicenciatura">Licenciatura</label>
+                    <div class = "cmbLicenciatura">
+                        <label class = "lblLicenciatura">Licenciatura</label>
 
-                    <select name = "licenciaturas" class = "licenciaturas" id = "licenciaturas" disabled>
-                        <option value="0">Selecciona una opcion</option>
+                        <select name = "licenciaturas" class = "licenciaturas" id = "licenciaturas" disabled>
+                            <option value="0">Selecciona una opcion</option>
+                            
+                            <?php
                         
-                        <?php
-                    
-                            while($valores = mysqli_fetch_array($result1)){
-                                echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
-                            }
+                                while($valores = mysqli_fetch_array($result1)){
+                                    echo '<option>'.$valores['idLicenciatura'].'.-'.$valores['licenciatura'].'</option>';
+                                }
 
-                        ?>
+                            ?>
+                            
+                        </select>
                         
-                    </select>
-                    
-                </div>
+                    </div>
 
-                <br>
-                <button type = "submit" class = "btnGrabar" name = "btnGrabar" id = "btnGrabar" disabled>Grabar</button>
-                <button type = "submit" class = "btnVerLista" name = "btnVerLista" id = "btnVerLista" onclick="cargaContenido('listaCoordinaciones.php')">Ver Lista</button>
-                <p></p>
-            </form>
+                    <br>
+                    <button type = "submit" class = "btnGrabarCoordinacion" name = "btnGrabarCoordinacion" id = "btnGrabarCoordinacion" disabled>Grabar</button>
+                    <button type = "submit" class = "btnVerListaCoordinacion" name = "btnVerListaCoordinacion" id = "btnVerListaCoordinacion" onclick="cargaContenido('listaCoordinaciones.php')">Ver Lista</button>
+                    <p></p>
+                </form>
 
+            </div>
+        
         </div>
+       
 
     </body>
 
@@ -69,7 +72,7 @@
 
     $(function(){    
 
-        $('#btnAceptar').click(function(e){
+        $('#btnBuscarCoordinacion').click(function(e){
             e.preventDefault();
 
             if($('#txtClaveCoordinacion').val() != ''){
@@ -80,8 +83,7 @@
                         $('#licenciaturas').prop('selectedIndex', resp);
                         document.getElementById("licenciaturas").disabled = false;
                         document.getElementById("txtClaveCoordinacion").disabled = true;
-                        document.getElementById("lblCoordinacion").style = "top: -5px;";
-                        document.getElementById("btnGrabar").disabled = false;
+                        document.getElementById("btnGrabarCoordinacion").disabled = false;
                         nuevaCoordinacion = false;
                     }else{
 
@@ -144,7 +146,7 @@
                     $('#txtClaveCoordinacion').val('');
                     $('#licenciaturas').prop('selectedIndex', 0);
                     document.getElementById("licenciaturas").disabled = true;
-                    document.getElementById("btnGrabar").disabled = true;
+                    document.getElementById("btnGrabarCoordinacion").disabled = true;
                     document.getElementById("txtClaveCoordinacion").disabled = false;
                 }else{
 
