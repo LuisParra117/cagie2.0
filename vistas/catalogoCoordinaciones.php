@@ -72,6 +72,20 @@
 
     $(function(){    
 
+        $(document).ready(function() {
+            
+            $('#txtClaveCoordinacion').on('keypress', function(event) {
+                
+                if (event.which == 13) {
+                    event.preventDefault();
+
+                    $('#btnBuscarCoordinacion').click();
+                }
+
+            });
+            
+        });
+
         $('#btnBuscarCoordinacion').click(function(e){
             e.preventDefault();
 
@@ -98,6 +112,7 @@
 
                             if (result.isConfirmed) {
                                 document.getElementById("licenciaturas").disabled = false;
+                                document.getElementById("btnGrabarCoordinacion").disabled = false;
                                 nuevaCoordinacion = true;
                             } else if (result.isDenied) {
                                 $('#txtClaveCoordinacion').val('');
@@ -122,7 +137,7 @@
 
         });
 
-        $('#btnGrabar').click(function(e){
+        $('#btnGrabarCoordinacion').click(function(e){
             e.preventDefault();
             var obj = {
                 coordinacion:$('#txtClaveCoordinacion').val(),
