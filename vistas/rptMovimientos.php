@@ -41,33 +41,6 @@
                         <input class = "fechaFinal" type="date" id="fechaFinal" name="fechaFinal" min="2024-01-01"/>
                     </div>
 
-                    <script>
-
-                        function setTodayDate() {
-                            const today = new Date();
-                            const year = today.getFullYear();
-                            const month = String(today.getMonth() + 1).padStart(2, '0');
-                            const day = String(today.getDate()).padStart(2, '0');
-                            const formattedDate = `${year}-${month}-${day}`;
-                            
-                            const fechaInicial = document.getElementById('fechaInicial');
-                            const fechaFinal = document.getElementById('fechaFinal');
-                            
-                            fechaInicial.setAttribute('value', formattedDate);
-                            fechaFinal.setAttribute('value', formattedDate);
-                            
-                            fechaInicial.value = formattedDate;
-                            fechaFinal.value = formattedDate;
-                            fechaInicial.dispatchEvent(new Event('change', { bubbles: true }));
-                            fechaFinal.dispatchEvent(new Event('change', { bubbles: true }));
-
-                            fechaInicial.dispatchEvent(new Event('input', { bubbles: true }));
-                            fechaFinal.dispatchEvent(new Event('input', { bubbles: true }));
-                        }
-
-                        window.onload = setTodayDate;
-                    </script>
-
                     <div class = "cmbPlantel">
                         <label class = "lblPlantel">Plantel</label>
 
@@ -140,6 +113,28 @@
 
 <script type = "text/javascript">
 
+    function setFechas() {
+        // Fecha actual
+        var today = new Date();
+        var day = String(today.getDate()).padStart(2, '0');
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var year = today.getFullYear();
+        var currentDate = year + '-' + month + '-' + day;
+
+        // Establecer la fecha en el campo de fecha final
+        $("#fechaFinal").val(currentDate);
+
+        // Restar 7 días para la fecha inicial
+        today.setDate(today.getDate() - 7);  // Restar 7 días
+        var initDay = String(today.getDate()).padStart(2, '0');
+        var initMonth = String(today.getMonth() + 1).padStart(2, '0'); // Los meses son de 0-11
+        var initYear = today.getFullYear();
+        var initialDate = initYear + '-' + initMonth + '-' + initDay;
+
+        // Establecer la fecha en el campo de fecha inicial
+        $("#fechaInicial").val(initialDate);
+    }
+
     function muestraReporte(urlReporte) {
         var plantel = '';
         var licenciatura = '';
@@ -147,16 +142,16 @@
         var fechaInicial = $('#fechaInicial').val();
         var fechaFinal = $('#fechaFinal').val();
         
-        if($('#planteles').prop("selectedIndex") != 0 ){
-            plantel = $('#planteles').prop("selectedIndex");
+        if($('#planteles').prop("selectedIndex") != 0){
+            plantel = $('#planteles').val().split(".-")[0]; // Extrae el número antes del ".-"
         }
 
         if($('#licenciaturas').prop("selectedIndex") != 0){
-            licenciatura = $('#licenciaturas').prop("selectedIndex");
+            licenciatura = $('#licenciaturas').val().split(".-")[0]; // Extrae el número antes del ".-"
         }
 
         if($('#aulas').prop("selectedIndex") != 0){
-            aula = $('#aulas').prop("selectedIndex");
+            aula = $('#aulas').val().split(".-")[0]; // Extrae el número antes del ".-"
         }
 
         urlReporte = urlReporte + "?plantel=" + encodeURIComponent(plantel) + "&licenciatura=" + encodeURIComponent(licenciatura) +
