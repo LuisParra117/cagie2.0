@@ -73,6 +73,20 @@
 
     $(function(){
 
+        $(document).ready(function() {
+            
+            $('#txtClaveLicenciatura').on('keypress', function(event) {
+                
+                if (event.which == 13) {
+                    event.preventDefault();
+
+                    $('#btnBuscarLicenciatura').click();
+                }
+
+            });
+            
+        });
+
         $('#btnBuscarLicenciatura').click(function(e){
             e.preventDefault();
 
@@ -84,7 +98,6 @@
                         $('#planteles').prop('selectedIndex', resp);
                         document.getElementById("planteles").disabled = false;
                         document.getElementById("txtClaveLicenciatura").disabled = true;
-                        document.getElementById("lblLicenciatura").style = "top: -5px;";
                         document.getElementById("btnGrabarLicenciatura").disabled = false;
                         nuevaLicenciatura = false;
                     }else{
@@ -100,6 +113,7 @@
 
                             if (result.isConfirmed) {
                                 document.getElementById("planteles").disabled = false;
+                                document.getElementById("btnGrabarLicenciatura").disabled = false;
                                 nuevaLicenciatura = true;
                             } else if (result.isDenied) {
                                 $('#txtClaveLicenciatura').val('');
