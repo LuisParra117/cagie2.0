@@ -123,7 +123,6 @@ if (!isset($_SESSION['usuarioLogueado']) == true) {
     <script>
 
         function cargaContenido(url){
-
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -131,15 +130,19 @@ if (!isset($_SESSION['usuarioLogueado']) == true) {
 
                 success: function(data) {
                     $('#contenido').html(data);
+
+                    if (url === 'rptMovimientos.php') {
+                        setFechas();
+                    }
+                    
                 },
 
                 error: function(xhr, status, error) {
                     console.error('Error al cargar la página:', error);
                 }
-
             });
-
         }
+
 
         $(function (){
 
