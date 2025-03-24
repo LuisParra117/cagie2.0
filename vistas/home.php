@@ -47,7 +47,6 @@ if (!isset($_SESSION['usuarioLogueado']) == true) {
                 
                 <div class = "content">
                     <img src  = "/cagie/img/logoGrandeUnedl.png" alt = "Logo unedl" width = "625" height = "300">
-                    <img src  = "/cagie/img/cagieGrande.png" alt = "Logo cagie" width = "300" height = "300">
                 </div>
 
             </div>

@@ -19,9 +19,9 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    /* background: white; */
     border-radius: 10px;
-    background-color:rgba(225, 209, 209, 0.45);    
+    /* background-color:rgba(225, 209, 209, 0.45);     */
 }
 
 .fondo img {
